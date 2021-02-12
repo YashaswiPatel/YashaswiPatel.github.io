@@ -1,4 +1,11 @@
 # wehelp.github.io
+<h3>Client:</h3>
+(https://YashaswiPatel.github.io)
+<br>
+<h3>Admin:</h3>
+(https://yashaswipatel.github.io/YashaswiPatel.github.io-admin/)
+<br>
+<hr>
 <h1>Problem</h1>
 <pre>
 <h4>Gradually over time, we have had technological innovations in every field, including the field of medicine.
@@ -17,7 +24,7 @@ So, the objective of my project is to collect data from the remote areas where p
 are unavailable, and then use this data in a number of ways so as to be able to help these people in
 lowering the risk of Maternal Deaths.
 </h4></pre>
-
+<hr>
 <h2>Methodology and Applications</h2>
 <pre><h4>
 The primary task is Data collection with the help of a form that includes simple details like menstrual
@@ -37,7 +44,7 @@ women and this opens up a variety of ways to rectify the fault we’ve been maki
 This could be through medical workshops by the above agents we collaborated with so as to make the
 whole community aware of the issue. Another option could be a supplementation drive if there is a lack of
 dietary components that could be carried on by the government agencies.</h4>
-
+<hr>
 <h2>Future Ideas</h2>
 
 ● For the demonstration part we have assumed that the data is from a single location and
