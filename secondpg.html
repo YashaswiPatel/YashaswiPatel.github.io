@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" integrity="sha512-/zs32ZEJh+/EO2N1b0PEdoA10JkdC3zJ8L5FTiQu82LR9S/rOQNfQN7U59U9BC12swNeRAz3HSzIL2vpp4fv3w==" crossorigin="anonymous" />
+    </head>
+ <body>
+        <canvas id="myChart" width="200" height="200"></canvas>
+        
+        
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.2.6/firebase-database.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+        
+<script>
+    
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyBy0nGwLjRdM9l7S-YWtAIZ-FZa-vJoAp0",
+    authDomain: "final-27d03.firebaseapp.com",
+    databaseURL: "https://final-27d03-default-rtdb.firebaseio.com",
+    projectId: "final-27d03",
+    storageBucket: "final-27d03.appspot.com",
+    messagingSenderId: "255603685264",
+    appId: "1:255603685264:web:4f8e1689915a8899a3a515"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+    
+    var dataRef = firebase.database().ref('/Patient');
+        dataRef.on('value', (snapshot) => {
+        var data = snapshot.val();
+        var sugarAvg = Object.values(data).map ((patient, i, arr) => patient.sugar / arr.length).reduce ((p1, p2) => p1 + p2);
+        var pressureAvg = Object.values(data).map ((patient, i, arr) => patient.pressure / arr.length).reduce ((p1, p2) => p1 + p2);
+        
+        var ctx = document.getElementById('myChart').getContext('2d');
+        
+        var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Pressure', 'Sugar'],
+        datasets: [{
+            label: 'Properties',
+            data: [pressureAvg, sugarAvg],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+    })
+    
+    
+</script>
+</body>
+</html>
